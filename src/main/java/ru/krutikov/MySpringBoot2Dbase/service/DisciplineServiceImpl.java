@@ -1,11 +1,13 @@
 package ru.krutikov.MySpringBoot2Dbase.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import ru.krutikov.MySpringBoot2Dbase.dao.DisciplineDAO;
 import ru.krutikov.MySpringBoot2Dbase.entity.Discipline;
 
 import java.util.List;
 
+@Service
 public class DisciplineServiceImpl implements DisciplineService {
     @Autowired
     private DisciplineDAO disciplineDAO;
