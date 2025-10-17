@@ -1,5 +1,6 @@
 package ru.krutikov.MySpringBoot2Dbase.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +11,7 @@ import ru.krutikov.MySpringBoot2Dbase.service.DisciplineService;
 import java.util.List;
 
 @RestController
+@Slf4j
 @RequestMapping("/api")
 public class DisciplineController {
     @Autowired
@@ -45,6 +47,7 @@ public class DisciplineController {
         try {
             return new ResponseEntity<>(disciplineService.saveDiscipline(discipline), HttpStatus.OK);
         } catch (Exception e) {
+            log.error("post /disciplines exception:", e);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
